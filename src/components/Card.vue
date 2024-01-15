@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 // in defineProps we put the props we want to use in the component
-defineProps({
+const props = defineProps({
   id: Number,
   imageUrl: String,
   title: String,
@@ -11,7 +11,7 @@ defineProps({
   onClickAdd: Function,
   onClickFav: Function
 })
-
+const isShownWishlist = Boolean(props.onClickFav)
 // const onClickAdd = () => {}
 </script>
 
