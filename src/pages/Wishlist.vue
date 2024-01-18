@@ -20,13 +20,22 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <h1 class="text-9xl uppercase border-b border-solid border-black text-left py-4 pl-8 font-bold">
+  <div class="text-reveal__container flex align-center justify-center">
+    <h1
+      class="text-reveal__span text-9xl uppercase border-b border-solid border-black text-left py-4 pl-8 font-bold"
+    >
       Wishlist
     </h1>
   </div>
   <CardGrid :items="favs" @add-to-cart="onClickAdd" />
 </template>
+
+<style scoped>
+.text-reveal__span h1,
+span {
+  color: #000;
+}
+</style>
 
 <!-- 
 <script setup>

@@ -1,9 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../assets/fonts/fonts.css';
 
 body {
   background-color: #b8ff5f;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Plus Jakarta Sans Bold', sans-serif;
+}
+
+.pirata {
+  font-family: 'Pirata One', sans-serif;
 }
 
 .green {
