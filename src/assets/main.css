@@ -1,7 +1,7 @@
+@import '../assets/fonts/fonts.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import '../assets/fonts/fonts.css';
 
 body {
   background-color: #b8ff5f;
