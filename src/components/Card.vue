@@ -30,7 +30,7 @@ const props = defineProps({
     <div class="bottom-block flex justify-between mt-5">
       <div class="flex flex-col">
         <span class="text-stone-500 uppercase">price</span>
-        <span class="font-bold text-black">€ {{ price }}</span>
+        <span class="price font-bold text-black">€ {{ price }}</span>
       </div>
       <img
         :src="isAdded ? '/checked-green.svg' : '/add-to-cart.svg'"

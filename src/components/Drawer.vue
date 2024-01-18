@@ -79,13 +79,13 @@ const cartButtonDisabled = computed(() => isOrdering.value || cartIsEmpty.value)
       <div class="flex justify-between gap-2 mb-2 my-4">
         <span class="">TOTAL:</span>
         <div class="flex-1 border-b border-solid border-black"></div>
-        <span class="font-bold">€{{ totalPrice }}</span>
+        <span class="price font-bold">€{{ totalPrice }}</span>
       </div>
 
       <div class="flex justify-between gap-2 w-full my-2">
         <span class="">TAX 21%:</span>
         <div class="flex-1 border-b border-solid border-black"></div>
-        <span class="font-bold">€{{ vatPrice }}</span>
+        <span class="price font-bold">€{{ vatPrice }}</span>
       </div>
 
       <button
