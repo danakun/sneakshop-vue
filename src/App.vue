@@ -6,6 +6,7 @@ import { watch, provide } from 'vue'
 import axios from 'axios'
 import Header from './components/Header.vue'
 import Drawer from './components/Drawer.vue'
+import Footer from './components/Footer.vue'
 
 // reactive states for items and filters, ref for primitives and arrays, reactive for objects
 
@@ -102,11 +103,12 @@ provide('cart', {
 
 <template>
   <Drawer v-if="drawerOpened" :total-price="totalPrice" :vat-price="vatPrice" />
-  <div class="bg-white w-4/5 m-auto rounded-md border border-solid border-black shadow-md mt-14">
+  <div class="bg-white w-4/5 m-auto rounded-md border border-solid border-black shadow-md my-14">
     <Header :total-price="totalPrice" @open-drawer="openDrawer" />
     <!-- route outlet -->
     <!-- component matched by the route will render here -->
     <router-view></router-view>
+    <Footer />
   </div>
 </template>
 

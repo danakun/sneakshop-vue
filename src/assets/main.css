@@ -34,7 +34,7 @@ select {
   -webkit-appearance: none; /* Remove default arrow on Chrome/Safari */
   -moz-appearance: none; /* Remove default arrow on Firefox */
   appearance: none; /* Remove default arrow on other browsers */
-  background-image: url('../../public/arrowdown.svg');
+  background-image: url('/arrowdown.svg');
   background-position: 85% center;
   background-repeat: no-repeat;
   padding-right: 40px; /* Adjust padding to fit the arrow image */
