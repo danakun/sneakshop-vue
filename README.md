@@ -1,6 +1,9 @@
 # sneakshop
 
-This template should help get you started developing with Vue 3 in Vite.
+SneakShop is a Vue 3 project built, using Vite and Tailwind.
+You can check it deployed on Vercel:
+
+### Link [SneakShop](https://sneakshop-vue.vercel.app/)
 
 ## Recommended IDE Setup
 

@@ -50,7 +50,6 @@ const addToFavs = async (item) => {
       // for better ux we inmediately set isFav to true
       item.isFav = true
       const { data } = await axios.post('https://17dbc1cfc7e76f69.mokky.dev/favourites', obj)
-      // console.log(data)
       // we save id in item.favId to know which id has the fav you want to remove
       item.favId = data.id
     } else {
@@ -86,8 +85,8 @@ const fetchFavs = async () => {
       }
     })
 
-    console.log(items.value)
-    console.log(favourites)
+    // console.log(items.value)
+    // console.log(favourites)
   } catch (err) {
     console.log(err)
   }

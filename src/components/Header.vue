@@ -10,7 +10,7 @@ const emit = defineEmits(['openDrawer'])
 <template>
   <header class="flex justify-between border-b border-solid border-black px-8">
     <router-link to="/"
-      ><div>
+      ><div class="pr-8">
         <img src="/logo-sneakshop.svg" alt="sneakshop logo" class="w-100 m-auto" />
       </div>
     </router-link>
