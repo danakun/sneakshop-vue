@@ -3,13 +3,13 @@
     <div class="flex flex-col items-center bg-black justify-between text-center overflow-hidden">
       <div class="a-section-marquee-box">
         <h2 class="marquee-text w-full text-9xl text-white font-bold py-4 my-2">
-          ONLY HOT<span class="text-black">s</span>
+          ONLY HOT STUFF<span class="text-black">ss</span>
         </h2>
         <h2 class="marquee-text w-full text-9xl text-white font-bold py-4 my-2">
-          ONLY HOT <span class="text-black">s</span>
+          ONLY HOT STUFF<span class="text-black">ss</span>
         </h2>
         <h2 class="marquee-text w-full text-9xl text-white font-bold py-4 my-2">
-          ONLY HOT <span class="text-black">s</span>
+          ONLY HOT STUFF<span class="text-black">ss</span>
         </h2>
       </div>
       <span class="text-white text-sm"
@@ -54,7 +54,7 @@
   display: flex;
   align-items: center;
   transform: translateX(0);
-  animation: a-text-scroll 30s linear infinite;
+  animation: a-text-scroll 20s linear infinite;
 }
 @keyframes a-text-scroll {
   0% {
