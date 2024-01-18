@@ -9,7 +9,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+span {
   font-family: 'Plus Jakarta Sans Bold', sans-serif;
 }
 
