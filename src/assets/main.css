@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --green-color: #b8ff5f;
+}
+
 body {
   background-color: #b8ff5f;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -25,6 +29,13 @@ span {
   background-color: #b8ff5f;
 }
 
-:root {
-  --green-color: #b8ff5f;
+select {
+  /* Other styles as needed */
+  -webkit-appearance: none; /* Remove default arrow on Chrome/Safari */
+  -moz-appearance: none; /* Remove default arrow on Firefox */
+  appearance: none; /* Remove default arrow on other browsers */
+  background-image: url('../../public/arrowdown.svg');
+  background-position: 85% center;
+  background-repeat: no-repeat;
+  padding-right: 40px; /* Adjust padding to fit the arrow image */
 }

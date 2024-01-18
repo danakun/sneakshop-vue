@@ -14,7 +14,7 @@
 </template>
 
 <style scoped>
-.pirata {
+/* .pirata {
   font-family: 'Pirata One', sans-serif;
-}
+} */
 </style>

@@ -31,9 +31,12 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.text-reveal__span h1,
-span {
+.text-reveal__span {
   color: #000;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: text-reveal 5s linear;
 }
 </style>
 
