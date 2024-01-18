@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src:
-    url('./fonts/PlusJakartaSans-Regular.woff2') format('woff2'),
-    url('./fonts/PlusJakartaSans-Regular.woff') format('woff');
+    url('./PlusJakartaSans-Regular.woff2') format('woff2'),
+    url('./PlusJakartaSans-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: 'Plus Jakarta Sans Bold';
   src:
-    url('./fonts/PlusJakartaSans-Bold.woff2') format('woff2'),
-    url('./fonts/PlusJakartaSans-Bold.woff') format('woff');
+    url('./PlusJakartaSans-Bold.woff2') format('woff2'),
+    url('./PlusJakartaSans-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: 'Pirata One';
   src:
-    url('./fonts/PirataOne-Regular.woff2') format('woff2'),
-    url('./fonts/PirataOne-Regular.woff') format('woff');
+    url('./PirataOne-Regular.woff2') format('woff2'),
+    url('./PirataOne-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
