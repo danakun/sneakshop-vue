@@ -21,7 +21,7 @@ const emit = defineEmits(['openDrawer'])
           @click="emit('openDrawer')"
           class="flex flex-row gap-3 font-bold transition hover:invert hover:brightness-150 hover:ease-in-out hover:duration-500"
           href="#"
-          ><img src="/cart.svg" alt="cart icon" class="w-6" />€{{ totalPrice }}</a
+          ><img src="/cart.svg" alt="cart icon" class="w-6 price" />€{{ totalPrice }}</a
         >
       </li>
       <router-link to="/wishlist"
