@@ -10,7 +10,7 @@ const { closeDrawer } = inject('cart')
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-4 mt-2 w-72 mx-auto">
+  <div class="flex flex-col items-center gap-4 mt-2 w-72 mx-auto text-center">
     <img :src="imageUrl" alt="image" class="w-100 self-center" />
     <h2 class="mt-4 text-3xl font-bold">{{ title }}</h2>
     <p class="text-stone-500">{{ description }}</p>

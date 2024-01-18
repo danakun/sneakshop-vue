@@ -9,9 +9,19 @@ import Drawer from './components/Drawer.vue'
 
 // reactive states for items and filters, ref for primitives and arrays, reactive for objects
 
+// onClickAdd is a function that adds or removes an item from the cart
+// addToCart is a function that pushes an item to the cart
+const onClickAdd = (item) => {
+  if (!item.isAdded) {
+    addToCart(item)
+  } else {
+    removeFromCart(item)
+  }
+}
+
 /* Cart Logic */
 const cart = ref([])
-const isOrdering = ref(false)
+
 //here we declare Drawer as a ref
 const drawerOpened = ref(false)
 // we create a function to close the drawer
@@ -57,8 +67,6 @@ const vatPrice = computed(() => {
   return Math.round(totalPrice.value * 0.21)
 })
 
-const cartIsEmpty = computed(() => cart.value.length === 0)
-const cartButtonDisabled = computed(() => isOrdering.value || cartIsEmpty.value)
 // const cartButtonDisabled = computed(() => cart.value.length === 0 || isOrdering.value)
 
 const addToCart = (item) => {
@@ -69,29 +77,6 @@ const addToCart = (item) => {
 const removeFromCart = (item) => {
   cart.value.splice(cart.value.indexOf(item), 1)
   item.isAdded = false
-}
-
-const makeOrder = async () => {
-  try {
-    isOrdering.value = true
-    const { data } = await axios.post('https://17dbc1cfc7e76f69.mokky.dev/orders', {
-      items: cart.value,
-      total: totalPrice.value
-    })
-    cart.value = []
-    return data
-  } catch (error) {
-    console.log(error)
-  } finally {
-    isOrdering.value = false
-    // if I delete item before the order is made, it must be unchecked from the home page
-    // items.value = items.value.map((item) => {
-    //   if (item.isAdded) {
-    //     return { ...item, isAdded: false }
-    //   }
-    //   return item
-    // })
-  }
 }
 
 // we watch for changes in cart in localStorage using deep watch,
@@ -109,19 +94,14 @@ provide('cart', {
   closeDrawer,
   openDrawer,
   addToCart,
-  removeFromCart
+  removeFromCart,
+  onClickAdd
 })
 /* Cart Logic End */
 </script>
 
 <template>
-  <Drawer
-    v-if="drawerOpened"
-    :total-price="totalPrice"
-    :vat-price="vatPrice"
-    @make-order="makeOrder"
-    :cart-button-disabled="cartButtonDisabled"
-  />
+  <Drawer v-if="drawerOpened" :total-price="totalPrice" :vat-price="vatPrice" />
   <div class="bg-white w-4/5 m-auto rounded-md border border-solid border-black shadow-md mt-14">
     <Header :total-price="totalPrice" @open-drawer="openDrawer" />
     <!-- route outlet -->

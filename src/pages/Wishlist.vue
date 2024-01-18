@@ -3,6 +3,9 @@
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import CardGrid from '../components/CardGrid.vue'
+import { inject } from 'vue'
+
+const { onClickAdd } = inject('cart')
 
 const favs = ref([])
 
@@ -18,9 +21,39 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h1 class="text-9xl uppercase border-b border-solid border-black text-left py-4 font-bold">
+    <h1 class="text-9xl uppercase border-b border-solid border-black text-left py-4 pl-8 font-bold">
       Wishlist
     </h1>
   </div>
-  <CardGrid :items="favs" />
+  <CardGrid :items="favs" @add-to-cart="onClickAdd" />
 </template>
+
+<!-- 
+<script setup>
+import axios from 'axios'
+import { onMounted, ref } from 'vue'
+import CardGrid from '../components/CardGrid.vue'
+import { inject } from 'vue'
+
+const { addToCart, removeFromCart, cart } = inject('cart')
+
+const favs = ref([])
+
+onMounted(async () => {
+  try {
+    const { data } = await axios.get('https://17dbc1cfc7e76f69.mokky.dev/favourites')
+    favs.value = data.map((obj) => obj.item)
+  } catch (err) {
+    console.log(err)
+  }
+})
+</script>
+
+<template>
+  <div>
+    <h1 class="text-9xl uppercase pl-8 border-b border-solid border-black text-left py-4 font-bold">
+      Wish list
+    </h1>
+  </div>
+  <CardGrid :items="favs" @addToCart="addToCart" @removeFromCart="removeFromCart" :cart="cart" />
+</template> -->

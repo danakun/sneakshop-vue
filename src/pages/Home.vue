@@ -5,8 +5,9 @@ import { inject, ref, reactive, watch, onMounted } from 'vue'
 import axios from 'axios'
 import Hero from '../components/Hero.vue'
 import CardGrid from '../components/CardGrid.vue'
+import debounce from 'lodash.debounce'
 
-const { addToCart, removeFromCart, cart } = inject('cart')
+const { addToCart, removeFromCart, onClickAdd, cart } = inject('cart')
 
 const items = ref([])
 // we store sortBy and searchQuery in the filter object
@@ -15,15 +16,15 @@ const filters = reactive({
   searchQuery: ''
 })
 
-// onClickAdd is a function that adds or removes an item from the cart
-// addToCart is a function that pushes an item to the cart
-const onClickAdd = (item) => {
-  if (!item.isAdded) {
-    addToCart(item)
-  } else {
-    removeFromCart(item)
-  }
-}
+// // onClickAdd is a function that adds or removes an item from the cart
+// // addToCart is a function that pushes an item to the cart
+// const onClickAdd = (item) => {
+//   if (!item.isAdded) {
+//     addToCart(item)
+//   } else {
+//     removeFromCart(item)
+//   }
+// }
 // we create functions for onChangeSelect and onChangeSearchInput,
 //they watch for changes in sortBy and searchQuery and pass them to the fetchItems function
 
@@ -33,9 +34,9 @@ const onChangeSelect = (event) => {
   filters.sortBy = event.target.value
 }
 
-const onChangeSearchInput = (event) => {
+const onChangeSearchInput = debounce((event) => {
   filters.searchQuery = event.target.value
-}
+}, 300)
 
 // function to add item to favourites or remove it
 const addToFavs = async (item) => {
