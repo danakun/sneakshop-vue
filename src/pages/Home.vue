@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import { inject, ref, reactive, watch, onMounted } from 'vue'
+import { inject, ref, reactive, watch, onMounted, onUnmounted } from 'vue'
 
 import axios from 'axios'
 import Hero from '../components/Hero.vue'
@@ -9,6 +9,10 @@ import debounce from 'lodash.debounce'
 
 const { addToCart, removeFromCart, onClickAdd, cart } = inject('cart')
 
+// const animatedTextElements = ref([])
+
+const isTextVisible = ref(false)
+
 const items = ref([])
 // we store sortBy and searchQuery in the filter object
 const filters = reactive({
@@ -16,15 +20,6 @@ const filters = reactive({
   searchQuery: ''
 })
 
-// // onClickAdd is a function that adds or removes an item from the cart
-// // addToCart is a function that pushes an item to the cart
-// const onClickAdd = (item) => {
-//   if (!item.isAdded) {
-//     addToCart(item)
-//   } else {
-//     removeFromCart(item)
-//   }
-// }
 // we create functions for onChangeSelect and onChangeSearchInput,
 //they watch for changes in sortBy and searchQuery and pass them to the fetchItems function
 
@@ -138,6 +133,9 @@ onMounted(
         isAdded: cart.value.some((cartItem) => cartItem.id === item.id)
       }
     })
+    setTimeout(() => {
+      isTextVisible.value = true
+    }, 200) // This will trigger the animation 500ms after the component is mounted
   }
 )
 
@@ -160,9 +158,12 @@ watch(
 <template>
   <Hero />
   <div class="">
-    <h2 class="text-9xl font-bold mt-10 px-8 pb-8 border-b border-solid border-black">
-      ALL SNEAKERS
-    </h2>
+    <div class="flex overflow-hidden h-48 border-b border-solid border-black pt-8 pl-8">
+      <span :class="{ active: isTextVisible }" class="animated-text text-9xl">ALL SNEAKERS</span>
+      <!-- <h2 class="text-9xl font-bold mt-10 px-8 pb-8 border-b border-solid border-black">
+        ALL SNEAKERS
+      </h2> -->
+    </div>
     <div class="flex justify-between px-8 pt-6">
       <!-- <div>
           <span class="text-3xl font-bold">FILTERS</span>
@@ -195,3 +196,14 @@ watch(
     <CardGrid :items="items" @add-to-favs="addToFavs" @add-to-cart="onClickAdd" />
   </div>
 </template>
+
+<style>
+.animated-text {
+  display: block;
+  transform: translateY(200%);
+  transition: transform 1s ease-out;
+}
+.animated-text.active {
+  transform: translateY(0%);
+}
+</style>
